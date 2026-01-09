@@ -153,7 +153,35 @@ Ask yourself:
 
 5. **Is this exploration/search task?**
    - YES → Agent: \`explore\` (internal codebase) OR \`librarian\` (external docs/repos)
-   - NO → Use default category based on context
+   - NO → Continue to step 6
+
+6. **What intensity level is needed?**
+   - Feasibility/POC/spike work → Category: \`spike\` (speed over polish, no tests)
+   - Production-quality/TDD → Category: \`craft\` (proper tests, incremental, quality)
+   - Neither specified → Continue to step 7
+
+7. **What is the task's purpose?**
+   - Deep debugging/investigation → Category: \`analyze\`
+   - Code review/security audit → Category: \`review\`
+   - API/contract design → Category: \`spec\`
+   - Ideation/brainstorming → Category: \`brainstorm\`
+   - Experimental/unconventional → Category: \`experiment\`
+   - Creative/blog writing → Category: \`write\`
+   - Technical documentation → Category: \`document\`
+   - UI creation with best practices → Category: \`create\`
+   - None match → Continue to step 8
+
+8. **Is this in a specific tech stack?**
+   - Spring Boot project → Category: \`java-spring\`
+   - Quarkus project → Category: \`java-quarkus\`
+   - React project → Category: \`ts-react\`
+   - Angular project → Category: \`ts-angular\`
+   - Next.js project → Category: \`ts-next\`
+   - FastAPI project → Category: \`python-fast\`
+   - Go project → Category: \`go-backend\`
+   - Rust project → Category: \`rust-systems\`
+   - DevOps/Infrastructure → Category: \`devops\`
+   - No specific stack → Use default category \`general\`
 
 #### Step 3: Declare BEFORE Calling
 
@@ -216,6 +244,66 @@ sisyphus_task(
   agent="explore",
   background=true,
   prompt="Find all authentication implementations in the codebase"
+)
+\`\`\`
+
+**✅ CORRECT: Spike for Quick POC**
+
+\`\`\`
+I will use sisyphus_task with:
+- **Category**: spike
+- **Reason**: Need quick feasibility check for WebSocket integration - speed over polish, no tests needed
+- **Skills**: []
+- **Expected Outcome**: Working proof of concept, even if rough
+
+sisyphus_task(
+  category="spike",
+  prompt="Quick POC: Can we integrate WebSocket for real-time updates?"
+)
+\`\`\`
+
+**✅ CORRECT: Craft for Production Quality**
+
+\`\`\`
+I will use sisyphus_task with:
+- **Category**: craft
+- **Reason**: This payment flow needs TDD, proper tests, and incremental quality-focused development
+- **Skills**: []
+- **Expected Outcome**: Well-tested, production-ready payment processing code
+
+sisyphus_task(
+  category="craft",
+  prompt="Implement payment processing with full TDD approach"
+)
+\`\`\`
+
+**✅ CORRECT: Stack-Specific Category**
+
+\`\`\`
+I will use sisyphus_task with:
+- **Category**: ts-react
+- **Reason**: Building React component with hooks - stack-specific expertise needed
+- **Skills**: []
+- **Expected Outcome**: Properly typed React component following React best practices
+
+sisyphus_task(
+  category="ts-react",
+  prompt="Create a reusable DataTable component with sorting and pagination"
+)
+\`\`\`
+
+**✅ CORRECT: Purpose-Based Category**
+
+\`\`\`
+I will use sisyphus_task with:
+- **Category**: analyze
+- **Reason**: Need deep investigation of memory leak - systematic root cause analysis required
+- **Skills**: []
+- **Expected Outcome**: Identified root cause with evidence and fix recommendation
+
+sisyphus_task(
+  category="analyze",
+  prompt="Debug: Memory leak in user session handling - trace the issue"
 )
 \`\`\`
 

@@ -899,6 +899,27 @@ sisyphus_task(agent="librarian", prompt="...")  // External research
 - \`most-capable\`: Task is extremely complex and needs maximum reasoning power
 - \`quick\`: Task is trivially simple (typo fix, one-liner)
 - \`writing\`: Task is purely documentation/prose
+- \`spike\`: Task needs feasibility-first exploration ("quick check", "POC", "proof of concept", "just try", "raw backbone", "no tests needed")
+- \`craft\`: Task requires software craftsmanship with TDD ("production-ready", "proper tests", "quality", "incremental", "baby steps")
+  // Purpose categories:
+- \`create\`: Task is UI/UX creation with best practices ("build new UI", "create component", "design interface")
+- \`experiment\`: Task encourages unconventional approaches ("try something new", "break rules", "radical approach")
+- \`brainstorm\`: Task needs multi-perspective ideation ("explore options", "multiple approaches", "ideate", "what are the possibilities")
+- \`analyze\`: Task is deep debugging/investigation ("debug", "investigate", "root cause", "why is this happening", "trace the issue")
+- \`review\`: Task is critical code evaluation ("code review", "security check", "performance audit", "find issues")
+- \`spec\`: Task is API/contract design ("API design", "contract", "OpenAPI", "schema definition", "interface contract")
+- \`document\`: Task is technical documentation ("write docs", "README", "technical documentation", "API docs")
+- \`write\`: Task is creative/personal writing ("blog post", "article", "personal voice", "engaging prose", "storytelling")
+  // Stack categories (auto-detect from file context):
+- \`java-spring\`: Working with Spring Boot (\`.java\` + @SpringBootApplication, @Autowired, @Service)
+- \`java-quarkus\`: Working with Quarkus (\`.java\` + @ApplicationScoped, Mutiny, native-image)
+- \`ts-react\`: Working with React (\`.tsx\` + useState, useEffect, components)
+- \`ts-angular\`: Working with Angular (\`.ts\` + @Component, @Injectable, RxJS)
+- \`ts-next\`: Working with Next.js (next.config, app/ or pages/, 'use client')
+- \`python-fast\`: Working with FastAPI (\`.py\` + from fastapi import, @app.get, Pydantic)
+- \`go-backend\`: Working with Go (\`.go\` + func main, goroutines, channels)
+- \`rust-systems\`: Working with Rust (\`.rs\` + fn main, ownership, lifetimes)
+- \`devops\`: Working with infrastructure (Dockerfile, docker-compose, Kubernetes, Terraform, CI/CD)
 
 ---
 
@@ -960,6 +981,10 @@ Justification: [Brief for general, EXTENSIVE for strategic/most-capable]
 - "Category: visual. Justification: Task involves CSS animations and responsive breakpoints - general lacks design expertise."
 - "Category: strategic. [FULL MANDATORY JUSTIFICATION BLOCK REQUIRED - see above]"
 - "Category: most-capable. Justification: Multi-system integration with security implications - needs maximum reasoning power."
+- "Category: spike. Justification: Need quick POC for feasibility check - speed over polish, no tests needed."
+- "Category: craft. Justification: Production payment flow requires TDD and incremental quality-focused development."
+- "Category: analyze. Justification: Deep debugging session - systematic root cause analysis required."
+- "Category: ts-react. Justification: Building React component - stack-specific expertise for hooks and TypeScript."
 
 **Keep it brief for non-strategic. For strategic, the justification IS the work.**
 
