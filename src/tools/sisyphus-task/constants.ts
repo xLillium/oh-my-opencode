@@ -183,6 +183,301 @@ EXPECTED OUTPUT:
 The more explicit your prompt, the better the results.
 </Caller_Warning>`
 
+export const JAVA_SPRING_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on JAVA SPRING BOOT tasks.
+
+Spring Boot expertise:
+- Use @Autowired/@Component/@Service/@Repository for dependency injection
+- Leverage Spring Data JPA for persistence (repositories, entities, @Query)
+- Follow Bean lifecycle and scoping best practices
+- Use Lombok (@Data, @Builder, @Slf4j) to reduce boilerplate
+- Test with @SpringBootTest, @DataJpaTest, MockMvc
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const JAVA_QUARKUS_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on JAVA QUARKUS tasks.
+
+Quarkus expertise:
+- Build for native compilation (GraalVM-friendly code)
+- Use CDI (@Inject, @ApplicationScoped, @RequestScoped) for dependency injection
+- Embrace reactive patterns with Mutiny (Uni, Multi)
+- Leverage dev mode for hot reload during development
+- Keep startup time and memory footprint low
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const TS_REACT_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on TYPESCRIPT REACT tasks.
+
+React best practices:
+- Prefer hooks (useState, useEffect, useCallback, useMemo, custom hooks)
+- Component composition over inheritance
+- Manage state effectively (lift up, context, or state libraries)
+- Strict TypeScript typing (no any, proper interfaces/types)
+- Test with React Testing Library and Jest
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const TS_ANGULAR_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on TYPESCRIPT ANGULAR tasks.
+
+Angular best practices:
+- Organize with modules and services
+- Master RxJS patterns (observables, operators like map, switchMap, catchError)
+- Use dependency injection with decorators (@Injectable, providers)
+- Choose template-driven vs reactive forms appropriately
+- Test with TestBed, jasmine, and karma
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const TS_NEXT_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on TYPESCRIPT NEXT.JS tasks.
+
+Next.js App Router conventions:
+- Distinguish Server Components from Client Components ('use client')
+- Leverage SSR/SSG/ISR patterns appropriately
+- Use API routes and middleware for backend logic
+- Optimize images with next/image, use dynamic imports for code splitting
+- Follow file-based routing conventions
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const PYTHON_FAST_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on PYTHON FASTAPI tasks.
+
+FastAPI best practices:
+- Define Pydantic models for request/response validation
+- Use async/await for I/O-bound operations
+- Type hints everywhere (parameters, return types)
+- Leverage dependency injection with Depends()
+- Automatic API docs via OpenAPI
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const GO_BACKEND_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on GO BACKEND tasks.
+
+Go idioms and conventions:
+- Explicit error handling (no exceptions, return error values)
+- Design with interfaces for flexibility and testability
+- Use goroutines and channels for concurrency
+- Prefer standard library over external dependencies
+- Write table-driven tests
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const RUST_SYSTEMS_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on RUST SYSTEMS tasks.
+
+Rust best practices:
+- Respect ownership and borrowing rules (avoid unnecessary clones)
+- Use lifetime annotations when required
+- Prefer Result/Option patterns (avoid unwrap() in production code)
+- Embrace zero-cost abstractions
+- Justify and document any unsafe blocks clearly
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const DEVOPS_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on DEVOPS tasks.
+
+DevOps best practices:
+- Infrastructure as Code (IaC) for all infrastructure changes
+- Docker best practices: multi-stage builds, minimal base images, layer caching
+- Kubernetes patterns: deployments, services, configmaps, secrets
+- Use Terraform/Pulumi for declarative infrastructure
+- Immutability and declarative approach over imperative scripts
+
+Core Craftsmanship applies:
+- KISS, DRY, meaningful naming
+- TDD when appropriate
+- Atomic commits, conventional format
+</Category_Context>`
+
+export const SPIKE_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on SPIKE tasks.
+
+Feasibility-first mindset:
+- Raw backbone, proof of concept
+- Speed over polish
+- Fail fast to learn fast
+- No tests, no edge cases, just core functionality
+</Category_Context>`
+
+export const CRAFT_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on CRAFT tasks.
+
+Software Craftsmanship philosophy:
+- TDD/BDD: Write test first, implement, refactor
+- Incremental organic growth with baby steps
+- KISS, DRY, meaningful naming
+- Atomic commits with conventional commit format
+- Fail fast, validate early
+- Boy Scout Rule: Leave code better than found
+- Quality through fast feedback loops
+</Category_Context>`
+
+export const CREATE_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on UI/UX CREATION tasks.
+
+Design with best practices mindset:
+- Established design patterns and conventions
+- Accessibility and UX best practices
+- User-centered approach
+- Component composition and reusability
+
+Approach:
+- Follow proven design systems
+- Ensure accessible, inclusive interfaces
+- Clear component hierarchy
+- Responsive and performant
+</Category_Context>`
+
+export const EXPERIMENT_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on EXPERIMENTAL tasks.
+
+Break rules thoughtfully mindset:
+- Out-of-box thinking encouraged
+- Unconventional approaches welcome
+- Artistic freedom to explore
+- Try novel solutions
+
+Approach:
+- Challenge conventional patterns
+- Test radical ideas
+- Iterate fearlessly
+- Balance innovation with coherence
+</Category_Context>`
+
+export const BRAINSTORM_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on BRAINSTORMING tasks.
+
+Multi-perspective ideation mindset:
+- Explore all angles and approaches
+- Generate multiple alternatives
+- Embrace diverse perspectives
+- No premature convergence
+
+Approach:
+- Divergent thinking first
+- Consider edge cases and extremes
+- Cross-pollinate ideas
+- Defer judgment until options exhausted
+</Category_Context>`
+
+export const ANALYZE_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on ANALYSIS / DEBUGGING tasks.
+
+Deep investigation mindset:
+- Systematic root cause analysis
+- Evidence-based reasoning
+- Trace the problem methodically
+- Leave no stone unturned
+
+Approach:
+- Hypothesis-driven investigation
+- Isolate variables and test
+- Follow the data trail
+- Document findings clearly
+</Category_Context>`
+
+export const REVIEW_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on CODE REVIEW tasks.
+
+Critical evaluation mindset:
+- Security vulnerabilities and risks
+- Performance implications
+- Maintainability and technical debt
+- Best practices adherence
+
+Approach:
+- Skeptical but constructive
+- Identify anti-patterns
+- Consider long-term impact
+- Suggest concrete improvements
+</Category_Context>`
+
+export const SPEC_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on API SPECIFICATION tasks.
+
+Contract-first design mindset:
+- Precise definitions and constraints
+- RESTful conventions and standards
+- OpenAPI compatibility
+- Clear interface contracts
+
+Approach:
+- Define before implementing
+- Version compatibility planning
+- Document edge cases
+- Ensure discoverability
+</Category_Context>`
+
+export const DOCUMENT_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on TECHNICAL DOCUMENTATION tasks.
+
+Clear structured documentation mindset:
+- Conventional technical documentation style
+- Scannable format with headers
+- Accurate and complete coverage
+- Developer-friendly organization
+
+Approach:
+- Start with overview, drill down
+- Use examples and code snippets
+- Maintain consistency
+- Focus on clarity over cleverness
+</Category_Context>`
+
+export const WRITE_CATEGORY_PROMPT_APPEND = `<Category_Context>
+You are working on CREATIVE WRITING tasks.
+
+Authentic voice mindset:
+- Personal and engaging tone
+- Less formal, more conversational
+- Readable and flowing prose
+- Connect with the reader
+
+Approach:
+- Write like you speak
+- Use storytelling techniques
+- Vary sentence structure
+- Balance personality with clarity
+</Category_Context>`
+
 export const DEFAULT_CATEGORIES: Record<string, CategoryConfig> = {
   "visual-engineering": {
     model: "cliproxy/gemini-3-pro-preview",
@@ -212,6 +507,82 @@ export const DEFAULT_CATEGORIES: Record<string, CategoryConfig> = {
     model: "cliproxy/gemini-claude-sonnet-4-5",
     temperature: 0.3,
   },
+  spike: {
+    model: "cliproxy/gemini-3-flash-preview",
+    temperature: 0.5,
+  },
+  craft: {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  "java-spring": {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  "java-quarkus": {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  "ts-react": {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  "ts-angular": {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  "ts-next": {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  "python-fast": {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  "go-backend": {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  "rust-systems": {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  devops: {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.2,
+  },
+  create: {
+    model: "cliproxy/gemini-3-pro-preview",
+    temperature: 0.6,
+  },
+  experiment: {
+    model: "cliproxy/gemini-3-pro-preview",
+    temperature: 0.9,
+  },
+  brainstorm: {
+    model: "cliproxy/gemini-claude-opus-4-5-thinking",
+    temperature: 0.8,
+  },
+  analyze: {
+    model: "cliproxy/gemini-claude-opus-4-5-thinking",
+    temperature: 0.1,
+  },
+  review: {
+    model: "cliproxy/gemini-claude-opus-4-5-thinking",
+    temperature: 0.2,
+  },
+  spec: {
+    model: "cliproxy/gemini-claude-sonnet-4-5",
+    temperature: 0.1,
+  },
+  document: {
+    model: "cliproxy/gemini-3-pro-preview",
+    temperature: 0.3,
+  },
+  write: {
+    model: "cliproxy/gemini-3-pro-preview",
+    temperature: 0.6,
+  },
 }
 
 export const CATEGORY_PROMPT_APPENDS: Record<string, string> = {
@@ -222,6 +593,25 @@ export const CATEGORY_PROMPT_APPENDS: Record<string, string> = {
   "most-capable": MOST_CAPABLE_CATEGORY_PROMPT_APPEND,
   writing: WRITING_CATEGORY_PROMPT_APPEND,
   general: GENERAL_CATEGORY_PROMPT_APPEND,
+  spike: SPIKE_CATEGORY_PROMPT_APPEND,
+  craft: CRAFT_CATEGORY_PROMPT_APPEND,
+  "java-spring": JAVA_SPRING_CATEGORY_PROMPT_APPEND,
+  "java-quarkus": JAVA_QUARKUS_CATEGORY_PROMPT_APPEND,
+  "ts-react": TS_REACT_CATEGORY_PROMPT_APPEND,
+  "ts-angular": TS_ANGULAR_CATEGORY_PROMPT_APPEND,
+  "ts-next": TS_NEXT_CATEGORY_PROMPT_APPEND,
+  "python-fast": PYTHON_FAST_CATEGORY_PROMPT_APPEND,
+  "go-backend": GO_BACKEND_CATEGORY_PROMPT_APPEND,
+  "rust-systems": RUST_SYSTEMS_CATEGORY_PROMPT_APPEND,
+  devops: DEVOPS_CATEGORY_PROMPT_APPEND,
+  create: CREATE_CATEGORY_PROMPT_APPEND,
+  experiment: EXPERIMENT_CATEGORY_PROMPT_APPEND,
+  brainstorm: BRAINSTORM_CATEGORY_PROMPT_APPEND,
+  analyze: ANALYZE_CATEGORY_PROMPT_APPEND,
+  review: REVIEW_CATEGORY_PROMPT_APPEND,
+  spec: SPEC_CATEGORY_PROMPT_APPEND,
+  document: DOCUMENT_CATEGORY_PROMPT_APPEND,
+  write: WRITE_CATEGORY_PROMPT_APPEND,
 }
 
 export const CATEGORY_DESCRIPTIONS: Record<string, string> = {
@@ -232,6 +622,25 @@ export const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   "most-capable": "Complex tasks requiring maximum capability",
   writing: "Documentation, prose, technical writing",
   general: "General purpose tasks",
+  spike: "Feasibility-first exploration, proof of concept, speed over polish",
+  craft: "Software Craftsmanship with TDD, quality through fast feedback loops",
+  "java-spring": "Spring Boot idioms, DI, JPA patterns, Lombok",
+  "java-quarkus": "Quarkus native, CDI, reactive Mutiny patterns",
+  "ts-react": "React hooks, component composition, strict TypeScript",
+  "ts-angular": "Angular modules, RxJS, dependency injection",
+  "ts-next": "Next.js App Router, server components, SSR/SSG",
+  "python-fast": "FastAPI, Pydantic, async/await, type hints",
+  "go-backend": "Go idioms, explicit errors, goroutines, interfaces",
+  "rust-systems": "Ownership, lifetimes, Result/Option, zero-cost",
+  devops: "IaC, Docker, Kubernetes, Terraform, immutability",
+  create: "UI/UX creation with established patterns and accessibility",
+  experiment: "Break rules thoughtfully, unconventional approaches",
+  brainstorm: "Multi-perspective ideation, explore all angles",
+  analyze: "Deep debugging, systematic root cause analysis",
+  review: "Critical code review for security, performance, maintainability",
+  spec: "API design, contracts, RESTful conventions",
+  document: "Clear, structured technical documentation",
+  write: "Blog posts, personal voice, engaging prose",
 }
 
 const BUILTIN_CATEGORIES = Object.keys(DEFAULT_CATEGORIES).join(", ")
