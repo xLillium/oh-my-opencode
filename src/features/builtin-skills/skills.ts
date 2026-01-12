@@ -92,6 +92,57 @@ Match implementation complexity to aesthetic vision:
 Interpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. You are capable of extraordinary creative work—don't hold back.`,
 }
 
+const tldrSkill: BuiltinSkill = {
+  name: "tldr",
+  description:
+    "Semantic code analysis with significant token savings. Use for code exploration, search, and understanding. Requires llm-tldr to be installed.",
+  template: `# TLDR Code Analysis
+
+Semantic code analysis with significant token savings via llm-tldr.
+
+## Available Tools
+
+| Tool | Purpose |
+|------|---------|
+| \`tldr_semantic\` | Natural language code search ("find JWT validation") |
+| \`tldr_context\` | LLM-optimized function summary |
+| \`tldr_impact\` | Find all callers of a function |
+| \`tldr_slice\` | Program slicing for debugging |
+| \`tldr_structure\` | File/directory structure |
+| \`tldr_calls\` | Build call graph |
+| \`tldr_dfg\` | Data flow graph |
+
+## Usage via skill_mcp
+
+\`\`\`
+skill_mcp(mcp_name="tldr", tool_name="tldr_semantic", arguments='{"query": "your search", "path": "."}')
+skill_mcp(mcp_name="tldr", tool_name="tldr_context", arguments='{"function": "func_name", "project": "."}')
+skill_mcp(mcp_name="tldr", tool_name="tldr_impact", arguments='{"function": "func_name", "path": "."}')
+\`\`\`
+
+## Token Comparison (typical 2000-line file)
+
+| Approach | Tokens | Notes |
+|----------|--------|-------|
+| TLDR semantic | ~175 | Semantic understanding |
+| Raw file read | ~21,000 | Full file content |
+
+*Savings vary by file size and query complexity.*
+
+## Fallback
+
+If TLDR is not available, use:
+1. grep/glob for text patterns
+2. LSP tools for semantic analysis
+3. explore agent for parallel search`,
+  mcpConfig: {
+    tldr: {
+      command: "tldr-mcp",
+      args: ["--project", "."],
+    },
+  },
+}
+
 const gitMasterSkill: BuiltinSkill = {
   name: "git-master",
   description:
@@ -1225,6 +1276,17 @@ POTENTIAL ACTIONS:
 - Bisect without proper good/bad boundaries -> Wasted time`,
 }
 
-export function createBuiltinSkills(): BuiltinSkill[] {
-  return [playwrightSkill, frontendUiUxSkill, gitMasterSkill]
+export interface BuiltinSkillsOptions {
+  tldrAvailable?: boolean
+}
+
+export function createBuiltinSkills(options: BuiltinSkillsOptions = {}): BuiltinSkill[] {
+  const skills: BuiltinSkill[] = [playwrightSkill, frontendUiUxSkill, gitMasterSkill]
+  
+  // Only include TLDR skill if tldr-mcp is available
+  if (options.tldrAvailable) {
+    skills.unshift(tldrSkill)
+  }
+  
+  return skills
 }

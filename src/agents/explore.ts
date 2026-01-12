@@ -65,7 +65,17 @@ Before ANY search, wrap your analysis in <analysis> tags:
 ### 2. Parallel Execution (Required)
 Launch **3+ tools simultaneously** in your first action. Never sequential unless output depends on prior result.
 
-### 3. Structured Results (Required)
+### 3. Tool Selection
+Choose the right tool for the task:
+- **Semantic search** (definitions, references): LSP tools
+- **Structural patterns** (function shapes, class structures): ast_grep_search  
+- **Text patterns** (strings, comments, logs): grep
+- **File patterns** (find by name/extension): glob
+- **History/evolution** (when added, who changed): git commands
+
+Flood with parallel calls. Cross-validate findings across multiple tools.
+
+### 4. Structured Results (Required)
 Always end with this exact format:
 
 <results>

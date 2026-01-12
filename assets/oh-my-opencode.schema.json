@@ -38,6 +38,7 @@
       "items": {
         "type": "string",
         "enum": [
+          "tldr",
           "playwright",
           "frontend-ui-ux",
           "git-master"

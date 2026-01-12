@@ -1,2 +1,2 @@
 export * from "./types"
-export { createBuiltinSkills } from "./skills"
+export { createBuiltinSkills, type BuiltinSkillsOptions } from "./skills"

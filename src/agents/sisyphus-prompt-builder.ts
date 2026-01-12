@@ -101,11 +101,33 @@ export function buildToolSelectionTable(
   const rows: string[] = [
     "### Tool & Skill Selection:",
     "",
-    "**Priority Order**: Skills → Direct Tools → Agents",
-    "",
   ]
 
-  // Skills section (highest priority)
+  const hasTldrSkill = skills.some((s) => s.name === "tldr")
+  
+  if (hasTldrSkill) {
+    rows.push("**Priority Order**: TLDR (for code exploration) → Skills → Direct Tools → Agents")
+  } else {
+    rows.push("**Priority Order**: Skills → Direct Tools → Agents")
+  }
+  rows.push("")
+
+  if (hasTldrSkill) {
+    rows.push("#### TLDR = Primary Code Exploration Tool")
+    rows.push("")
+    rows.push("**Use TLDR first for code exploration tasks. Significant token savings.**")
+    rows.push("")
+    rows.push("| Task | TLDR Tool |")
+    rows.push("|------|-----------|")
+    rows.push("| Find code by description | `skill_mcp(mcp_name=\"tldr\", tool_name=\"tldr_semantic\", ...)` |")
+    rows.push("| Get function context | `skill_mcp(mcp_name=\"tldr\", tool_name=\"tldr_context\", ...)` |")
+    rows.push("| Find callers | `skill_mcp(mcp_name=\"tldr\", tool_name=\"tldr_impact\", ...)` |")
+    rows.push("")
+    rows.push("Fall back to grep/LSP/explore if TLDR doesn't find what you need.")
+    rows.push("")
+  }
+
+  // Skills section (highest priority after TLDR)
   if (skills.length > 0) {
     rows.push("#### Skills (INVOKE FIRST if matching)")
     rows.push("")

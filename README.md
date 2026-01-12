@@ -625,9 +625,10 @@ mcp:
 When you load a skill with embedded MCP, its tools become available automatically. The `skill_mcp` tool lets you invoke these MCP operations with full schema discovery.
 
 **Built-in Skills:**
+- **tldr**: Semantic code analysis with 95% token savings. ABSOLUTE PRIORITY for all code exploration.
 - **playwright**: Browser automation, web scraping, testing, and screenshots out of the box
 
-Disable built-in skills via `disabled_skills: ["playwright"]` in your config.
+Disable built-in skills via `disabled_skills: ["tldr", "playwright"]` in your config.
 
 ### Goodbye Claude Code. Hello Oh My OpenCode.
 
@@ -918,6 +919,7 @@ Available agents: `oracle`, `librarian`, `explore`, `frontend-ui-ux-engineer`, `
 
 Oh My OpenCode includes built-in skills that provide additional capabilities:
 
+- **tldr** (ABSOLUTE PRIORITY): Semantic code analysis with 95% token savings via [llm-tldr](https://github.com/parcadei/llm-tldr). Agents use TLDR BEFORE grep, glob, LSP, or explore agents for ALL code exploration. Requires `pip install llm-tldr && tldr warm .` to index your project.
 - **playwright**: Browser automation with Playwright MCP. Use for web scraping, testing, screenshots, and browser interactions.
 - **git-master**: Git expert for atomic commits, rebase/squash, and history search (blame, bisect, log -S). STRONGLY RECOMMENDED: Use with `sisyphus_task(category='quick', skills=['git-master'], ...)` to save context.
 
@@ -925,11 +927,34 @@ Disable built-in skills via `disabled_skills` in `~/.config/opencode/oh-my-openc
 
 ```json
 {
-  "disabled_skills": ["playwright"]
+  "disabled_skills": ["tldr", "playwright"]
 }
 ```
 
-Available built-in skills: `playwright`, `git-master`
+Available built-in skills: `tldr`, `playwright`, `git-master`
+
+### TLDR Code Analysis
+
+TLDR is the **absolute priority** for code exploration. It provides 95% token savings by extracting structure instead of dumping raw text.
+
+**Setup (one-time):**
+
+```bash
+pip install llm-tldr
+tldr warm .  # Index your project (~1-2 min)
+```
+
+**How it works:**
+
+| Tool | Tokens | Use Case |
+|------|--------|----------|
+| `tldr_semantic` | ~175 | Natural language code search ("find JWT validation") |
+| `tldr_context` | ~175 | LLM-optimized function summary |
+| `tldr_impact` | ~175 | Find all callers of a function |
+| `tldr_slice` | ~175 | Program slicing for debugging |
+| Raw file read | ~21,000 | - |
+
+Agents are instructed to use TLDR first for ALL code exploration tasks. If TLDR is not installed, they fall back to grep/LSP/explore agents.
 
 ### Git Master
 

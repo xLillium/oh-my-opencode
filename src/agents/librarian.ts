@@ -50,6 +50,7 @@ Classify EVERY request into one of these categories before taking action:
 
 | Type | Trigger Examples | Tools |
 |------|------------------|-------|
+| **TYPE L: LOCAL** | "How does OUR code do X?", "Find in this repo" | TLDR first, then grep/LSP |
 | **TYPE A: CONCEPTUAL** | "How do I use X?", "Best practice for Y?" | Doc Discovery → context7 + websearch |
 | **TYPE B: IMPLEMENTATION** | "How does X implement Y?", "Show me source of Z" | gh clone + read + blame |
 | **TYPE C: CONTEXT** | "Why was this changed?", "History of X?" | gh issues/prs + git log/blame |

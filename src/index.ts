@@ -69,14 +69,15 @@ import { BackgroundManager } from "./features/background-agent";
 import { SkillMcpManager } from "./features/skill-mcp-manager";
 import { initTaskToastManager } from "./features/task-toast-manager";
 import { type HookName } from "./config";
-import { log, detectExternalNotificationPlugin, getNotificationConflictWarning } from "./shared";
+import { log, detectExternalNotificationPlugin, getNotificationConflictWarning, checkTldrMcpAvailable } from "./shared";
 import { loadPluginConfig } from "./plugin-config";
 import { createModelCacheState, getModelLimit } from "./plugin-state";
 import { createConfigHandler } from "./plugin-handlers";
 
 const OhMyOpenCodePlugin: Plugin = async (ctx) => {
-  // Start background tmux check immediately
   startTmuxCheck();
+
+  const tldrAvailable = await checkTldrMcpAvailable();
 
   const pluginConfig = loadPluginConfig(ctx.directory, ctx);
   const disabledHooks = new Set(pluginConfig.disabled_hooks ?? []);
@@ -241,7 +242,7 @@ const OhMyOpenCodePlugin: Plugin = async (ctx) => {
   });
   const disabledSkills = new Set(pluginConfig.disabled_skills ?? []);
   const systemMcpNames = getSystemMcpServerNames();
-  const builtinSkills = createBuiltinSkills().filter((skill) => {
+  const builtinSkills = createBuiltinSkills({ tldrAvailable }).filter((skill) => {
     if (disabledSkills.has(skill.name as never)) return false;
     if (skill.mcpConfig) {
       for (const mcpName of Object.keys(skill.mcpConfig)) {
